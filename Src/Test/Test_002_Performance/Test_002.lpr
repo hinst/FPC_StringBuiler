@@ -27,7 +27,7 @@ begin
   WriteLN(FormatDateTime('hh:nn:ss.zzz', time));
 end;
 
-{$Define EnableIntegrityCheck}
+{ $Define EnableIntegrityCheck}
 
 procedure TestWithBuilder;
 var

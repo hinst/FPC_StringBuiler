@@ -3,7 +3,7 @@ unit StringBuilderUnit;
 interface
 
 const
-  StringBuilderMemoryBlockLength = 100;
+  StringBuilderMemoryBlockLength = 1000;
 
 type
   PStringBuilderMemoryBlock = ^TStringBuilderMemoryBlock;
@@ -26,6 +26,7 @@ type
     property TotalLength: Cardinal read FTotalLength;
     constructor Create;
     procedure Add(const aString: string);
+    procedure Add(const aStrings: array of string);
     function ToString: string;
     procedure Clean;
     destructor Destroy; override;
@@ -92,6 +93,14 @@ begin
       FTail := Tail^.Next;
     end;
   end;
+end;
+
+procedure TStringBuilder.Add(const aStrings: array of string);
+var
+  i: Cardinal;
+begin
+  for i := 0 to Length(aStrings) - 1 do
+    Add(aStrings[i]);
 end;
 
 function TStringBuilder.ToString: string;
