@@ -144,6 +144,9 @@ begin
     Dispose(current);
     current := next;
   end;
+  FHead := nil;
+  FTail := nil;
+  FTotalLength := 0;
 end;
 
 destructor TStringBuilder.Destroy;

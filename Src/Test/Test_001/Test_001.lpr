@@ -11,6 +11,9 @@ begin
   s.Add('Foo');
   s.Add(' ');
   s.Add('Bar');
+  s.Clean;
+  s.Add('FFFUUU');
+  s.Add('<BR>');
   WriteLN('"', s.ToString, '"');
   s.Free;
 end.
